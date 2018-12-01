@@ -1,5 +1,5 @@
 #!/usr/bin/runhaskell
-  {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 import Data.Set (Set)
 import qualified Data.Set as Set
