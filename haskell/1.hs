@@ -10,10 +10,8 @@ solve :: [Int] -> [Int]
 solve = scanl1 (+)
 
 solve2 :: [Int] -> T.Text
-solve2 = T.pack . show . first_repeating Set.empty . solve . cycle
-  where
-    first_repeating set (x:xs) = if x `Set.member` set then x
-                                 else first_repeating (Set.insert x set) xs
+solve2 list = T.pack . show . head . map fst . filter (uncurry Set.member) . zip l . scanl (flip Set.insert) Set.empty $ l
+  where l = solve . cycle $ list
 
 main :: IO ()
 main = do
