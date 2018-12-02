@@ -1,0 +1,10 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["th0rex"]
+edition = "2018"
+
+[dependencies]
+aoc-runner = "*"
+aoc-runner-derive = "*"
+hashbrown = "*"

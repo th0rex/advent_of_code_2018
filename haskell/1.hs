@@ -15,7 +15,7 @@ solve2 list = T.pack . show . head . map fst . filter (uncurry Set.member) . zip
 
 main :: IO ()
 main = do
-  input <- T.readFile "../1_input_1"
+  input <- T.readFile "../rust/input/2018/day1.txt"
   let input' = map (read . T.unpack . T.dropWhile (== '+')) . filter (/= "") . T.lines $ input
   T.putStrLn $ solve1 input' <> "\n" <> solve2 input'
     where
