@@ -47,6 +47,24 @@ pub fn solve_2(input: &str) -> String {
     unreachable!();
 }
 
+#[aoc(day2, part2, functional)]
+pub fn solve_2_functional(input: &str) -> String {
+    use itertools::Itertools;
+
+    input
+        .lines()
+        .cartesian_product(input.lines())
+        .filter(|&(a, b)| a.chars().zip(b.chars()).filter(|&(a, b)| a != b).count() == 1)
+        .next()
+        .map(|(a, b)| {
+            a.chars()
+                .zip(b.chars())
+                .filter_map(|(a, b)| if a == b { Some(a) } else { None })
+                .collect()
+        })
+        .unwrap()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
